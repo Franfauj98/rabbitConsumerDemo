@@ -12,11 +12,12 @@ public class BasicReceiver {
 	public void receiveAsynchronous(String received) {
 		try {
 			System.out.println("Start receiving asynchronously ");
-			System.out.println("Received '" + received + " ' from rabbitExample.asynchronous, routingKey: asynchronous, date : " + LocalDateTime.now());
+			System.out.println("Received '" + received + " ' from rabbitExample.asynchronous, routingKey: asynchronous, date : "
+					+ LocalDateTime.now());
 			Thread.sleep(20000);
 			System.out.println("Stop processing asynchronously ");
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 	}
 
@@ -24,11 +25,12 @@ public class BasicReceiver {
 	public int receiveSynchronous(String received) {
 		try {
 			System.out.println("Start receiving synchronously ");
-			System.out.println("Received '" + received + " ' from rabbitExample.synchronous, routingKey: synchronous, date : " + LocalDateTime.now());
+			System.out.println("Received '" + received + " ' from rabbitExample.synchronous, routingKey: synchronous, date : "
+					+ LocalDateTime.now());
 			Thread.sleep(20000);
 			System.out.println("Stop processing synchronously ");
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 		return 42;
 	}
